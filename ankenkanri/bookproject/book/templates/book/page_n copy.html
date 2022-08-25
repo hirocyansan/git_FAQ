@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load boost %}
+
+{% block title%}ページN{% endblock %}
+
+{% block content %}
+
+<!--
+  <div>
+    {% for name, place in list_a|zip:list_b %}
+     <p>{{name}}の出身は{{place}}です。</p>  
+    {% endfor %}
+  </div>    
+--> 
+
+
+  <div>
+   <ul><h3><li>現状の進捗</li></h3></ul>
+   <h6>
+      {% for obj in q %}
+        （案件番号＝{{ obj.kanriNo }}、ステータス＝{{ obj.status }}、コード＝{{ obj.statusCode }}、経理承認＝{{ obj.keiriShonin}}、支払パターン＝{{ obj.shiharaiPattern }}、案件名＝{{ obj.ankenMei }}）
+      {% endfor %}
+    </h6>
+  </div>
+
+    <h5><nobr>
+    {% for i in badgeName %}
+        {% if forloop.counter <= badgeGray %}
+            <span class="badge badge-secondary" style="width:110pt;height:30pt;margin: 5px 5px;">☑{{ i | linebreaksbr }}</span>
+            <span class="badge badge-light">＞</span> 
+            {% if forloop.counter == 5 %} </br> {% endif %}
+        {% else %}
+            <span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐{{ i | linebreaksbr }}</span>
+            <span class="badge badge-light">＞</span>
+            {% if forloop.counter == 5 %} </br> {% endif %}
+        {% endif %}
+    {% endfor %}
+
+<br>   
+<ul><h3><li>完了した処理を選択してください。</li></h3></ul>
+<form method="POST">{% csrf_token %}
+<h4><nobr>
+    {% for i, j in buttonName|zip:buttonName2 %}
+        {% if forloop.counter <= buttonGray %}  
+<!--            <h5>buttonName2 ="{{ j }}"</h5>
+              <h5> escape test = {% autoescape off %} {{ "j" }} {% endautoescape %} </h5>  -->
+                <button class="btn btn-secondary" type="submit" name="{{ j }}" style="width:250pt;height:35pt;margin: 5px 5px;">{{ i }}</button>
+            {% if forloop.counter == 3 %} </br> {% endif %}
+            {% if forloop.counter == 6 %} </br> {% endif %}
+            {% if forloop.counter == 9 %} </br> {% endif %}            
+        {% else %}
+<!--            <h5>buttonName2AA ={{ j }}</h5>  -->
+            <button class="btn btn-primary" type="submit" name="{{ j }}" style="width:250pt;height:35pt;margin: 5px 5px;">{{ i }}</button>
+            {% if forloop.counter == 3 %} </br> {% endif %}
+            {% if forloop.counter == 6 %} </br> {% endif %}
+            {% if forloop.counter == 9 %} </br> {% endif %}            
+        {% endif %}
+    {% endfor %}
+    <a href="/book/rtn-top" class="btn btn-primary" name="buttonRTop" style="width:250pt;height:35pt;margin: 5px 5px;">TOPへ戻る</a>
+</form>
+</nobr></h4>
+
+{% endblock content %}

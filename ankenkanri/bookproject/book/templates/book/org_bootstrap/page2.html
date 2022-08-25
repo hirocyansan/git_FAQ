@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title%}ページ2{% endblock %}
+
+{% block content %}
+
+<div class="card" style="width: 65rem;">
+  <h5 class="card-header"><b>見積書依頼の確認[STATUS=2]</b></h5>
+  <div class="card-body">
+    <h6 class="card-title">      
+      {% for obj in object %}
+        &nbsp;&nbsp;現状の進捗（案件番号＝{{ obj.kanriNo }}、ステータス＝{{ obj.status }}、経理承認＝{{ obj.keiriShonin}}、支払パターン＝{{ obj.shiharaiPattern }}、案件名＝{{ obj.ankenMei }}）
+      {% endfor %}</h6>
+<h5><nobr>
+<span class="badge badge-secondary" style="width:110pt;height:30pt;margin: 5px 5px;">☑案件入力済<br>[STATUS = 1]</span>
+<span class="badge badge-light">＞</span> 
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐見積書依頼済<br>[STATUS = 2]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐見積書入手済<br>[STATUS = 3]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐稟議決裁済<br>[STATUS = 4]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐契約書(作成完了)<br>[STATUS = 5]</span></nobr>
+<span class="badge badge-light">＞</span>
+<nobr>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐契約書(締結完了)<br>[STATUS = 6]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐注文処理済<br>[STATUS = 7]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐納品済<br>[STATUS = 8]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐請求書入手済<br>[STATUS = 9]</span>
+<span class="badge badge-light">＞</span>
+<span class="badge badge-info" style="width:110pt;height:30pt;margin: 5px 5px;">☐支払処理済<br>[STATUS = 10]</span></h5></nobr>
+
+  </div>
+</div>
+
+<div class="card" style="width: 65rem;">
+  <h5 class="card-header"><b>次に行う処理を選択してください。</b></h5>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+<h3><nobr>
+<span class="badge badge-secondary" style="width:130pt;height:35pt;margin: 5px 5px;">見積書依頼処理</span>
+<a href="page3" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">見積書入手処理</a> 
+<a href="page4" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">稟議承認処理</a>
+<a href="page5" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">契約書(作成完了)</a>
+<a href="page6" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">契約書(締結完了)</a>
+</nobr><br><nobr>
+<a href="page7" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">注文処理</a>
+<a href="page8" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">納品処理</a> 
+<a href="page9" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">請求書処理</a>
+<a href="rtn-top" class="btn btn-primary" style="width:130pt;height:35pt;margin: 5px 5px;">TOPへ戻る</a>
+</nobr></h3>
+  </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title%}番号入力処理{% endblock %}
+
+{% block content %}
+
+  <body>
+    <h2>管理番号入力からの処理</h2>
+      <!-- <div class="alert alert-primary" role="alert"> -->
+      <nobr>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">管理番号を入力して「確定」を押してください:&nbsp;
+          <input type="text"  name="inputNumber" class="form-control" placeholder="1 .. 9" aria-label="Username" aria-describedby="basic-addon1">&nbsp;
+          <a href="n-treat" class="btn btn-primary">確定</a>&nbsp;&nbsp; 
+          <a href="rtn-top" class="btn btn-primary">TOPへ戻る</a></span></nobr> 
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock content %}
+
+<!-- <label>管理番号を入力して「確定」を押してください：<input type="int" name="matStatus" style="background-color:#CCCCFF" placeholder="1, 2, 3 ... " size="10" ><span> &nbsp;</span><input type="submit" style="background-color:#8DA3C4; border-color:#419CC0"; value="確定" ><input type="submit" style="background-color:#8DA3C4; border-color:#419CC0" value="TOPへ戻る" > -->
+
+

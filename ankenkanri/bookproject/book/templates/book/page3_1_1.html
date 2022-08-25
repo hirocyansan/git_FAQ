@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}見積書入力処理{% endblock %}
+
+{% block content %}
+
+  <body>
+
+    <h2>見積書データ入力</h2>
+      <!-- <div class="alert alert-primary" role="alert"> -->
+      <nobr>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <form action="/book/page3_1_1/" method="POST">{% csrf_token %}
+          <nobr>
+          <span class="input-group-text" id="basic-addon1">見積書の金額、個数を入力してください。:&nbsp;
+          <input type="text"  name="mitsumoriTanka" class="form-control" placeholder="英数字のみ" aria-label="Username" aria-describedby="basic-addon1">&nbsp; 
+          <input type="text"  name="mitsumoriSuu" class="form-control" placeholder="英数字のみ" aria-label="Username" aria-describedby="basic-addon1">&nbsp; </nobr>
+          <label for="basic-url">見積書のリンク情報</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">https://advantec-group.ent.box.com/.../</span>
+            </div>
+            <input type="text" class="form-control" name="mitsumoriLink" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+          <button type="submit" class="btn btn-primary">確定</button> &nbsp;&nbsp; 
+          <a href="rtn-top" class="btn btn-primary">TOPへ戻る</a></span></nobr> 
+        </form>
+        </div>
+      </div>
+    </div>
+  </body>
+{% endblock content %}
+
+
+

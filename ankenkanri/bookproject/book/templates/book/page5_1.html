@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title%}ページ1{% endblock %}
+
+{% block content %}
+
+{% if not object.keiriShonin %}
+  <div>
+    <h3>経理部未承認の状態です。処理を選択してください。</h3>
+    <h5><nobr>
+    <a class="btn btn-primary" href="/book/page5_2" style="width:130pt;height:35pt;margin: 5px 5px;">未承認のまま進める</a>
+    <a class="btn btn-primary" href="/book/rtn-top" style="width:130pt;height:35pt;margin: 5px 5px;">TOPへ戻る</a>
+    </nobr></h5>
+  </div>
+{% endif %}
+
+{% endblock content %}

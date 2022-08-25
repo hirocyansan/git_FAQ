@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title%}ページ1{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light mb-3" style="max-width: 600pt;">
+  <div class="card-header"><div class="p-3 mb-2 bg-info text-white"><h3>現状の進捗</h3></div></div>
+  <div class="card-body">
+    <h5 class="card-title">選択したテーマ</h5>
+    <p class="card-text">
+   <h6>
+        {% for obj in q %}
+            {% if obj.keiriShonin == False %}
+              （案件番号＝{{ obj.kanriNo }}、枝番＝{{ obj.edaban }}、ステータス＝{{ obj.status }}、コード＝{{ obj.statusCode }}、<font style="color:red;"><b>経理承認＝{{ obj.keiriShonin}}</b></font>、支払パターン＝{{ obj.shiharaiPattern }}、案件名＝{{ obj.ankenMei }}）
+            {% else %}
+              （案件番号＝{{ obj.kanriNo }}、枝番＝{{ obj.edaban }}、ステータス＝{{ obj.status }}、コード＝{{ obj.statusCode }}、経理承認＝{{ obj.keiriShonin}}、支払パターン＝{{ obj.shiharaiPattern }}、案件名＝{{ obj.ankenMei }}）
+            {% endif %}
+        {% endfor %}
+    </h6>    
+    </p>
+  </div>
+</div>
+
+
+<div class="card bg-light mb-3" style="max-width: 600pt;">
+  <div class="card-header"><div class="p-3 mb-2 bg-info text-white"><h3>見積書入手完了</h3></div></div>
+  <div class="card-body">
+    <form action="/book/mitsumoriSave" method="POST">{% csrf_token %}
+    <h5 class="card-title"></h5>
+
+    <p class="card-text">見積書の金額、個数、見積書URLを入力して「確定」をクリックしてください。:
+  
+    <input type="text"  name="mitsumoriTanka" class="form-control" style="max-width: 100pt;" placeholder="金額（円）" aria-label="Username" aria-describedby="basic-addon1">&nbsp; 
+    <input type="text"  name="mitsumoriSuu" class="form-control" style="max-width: 100pt;" placeholder="数量（個）" aria-label="Username" aria-describedby="basic-addon1">&nbsp; </p></nobr>
+
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon3">https://advantec-group.ent.box.com/.../</span>
+	  </div>
+	  <input type="text" class="form-control" name="mitsumoriLink" id="basic-url" aria-describedby="basic-addon3">
+	</div><div style="text-align: center;">
+	<button class="btn btn-primary" type="submit" name="confirm" style="width:120pt;height:35pt;margin: 5px 5px;"> 確定</button> &nbsp;&nbsp; 
+	<button class="btn btn-primary" type="submit" name="pageTop" style="width:120pt;height:35pt;margin: 5px 5px;"> TOPへ戻る</button>
+  <div style="text-align: center;"></form>
+  </div>
+</div>
+
+{% comment %} <br><br><br>
+<div class="card" style="max-width: 600pt;">
+  <h3 class="card-header">見積書入手完了</h3>
+  <div class="card-body">
+  <form action="/book/mitsumoriSave" method="POST">{% csrf_token %}
+    <h5 class="card-title">※ 見積書データ入力</h5>
+    <nobr><p class="card-text">見積書の金額、個数を入力してください。:
+    <input type="text"  name="mitsumoriTanka" class="form-control" style="max-width: 50pt;" placeholder="英数字のみ" aria-label="Username" aria-describedby="basic-addon1">円&nbsp; 
+    <input type="text"  name="mitsumoriSuu" class="form-control" style="max-width: 50pt;"placeholder="英数字のみ" aria-label="Username" aria-describedby="basic-addon1">個&nbsp; </p></nobr>
+	<label for="basic-url"><h5 style=color:#3B3838>※ 見積書のリンク情報</h5></label>
+	<div class="input-group mb-3">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text" id="basic-addon3">https://advantec-group.ent.box.com/.../</span>
+	  </div>
+	  <input type="text" class="form-control" name="mitsumoriLink" id="basic-url" aria-describedby="basic-addon3">
+	</div>
+	<button class="btn btn-primary" type="submit" name="confirm" style="width:120pt;height:35pt;margin: 5px 5px;"> 確定</button> &nbsp;&nbsp; 
+	<button class="btn btn-primary" type="submit" name="pageTop" style="width:120pt;height:35pt;margin: 5px 5px;"> TOPへ戻る</button>
+  </form>
+  </div>
+</div> {% endcomment %}
+
+  {% comment %} <div>
+    <br><br><br>
+    <ul><h3 style=color:#3B3838><li>見積書入手完了</ul></h3></li>
+  </div>
+  <body>
+    <h5 style=color:#3B3838 ><b>※ 見積書データ入力</b></h5>
+      <!-- <div class="alert alert-primary" role="alert"> -->
+      <nobr>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+        <form action="/book/mitsumoriSave" method="POST">{% csrf_token %}
+          <nobr>
+          <span class="input-group-text" id="basic-addon1">見積書の金額、個数を入力してください。:&nbsp;
+          <input type="text"  name="mitsumoriTanka" class="form-control" placeholder="英数字のみ" aria-label="Username" aria-describedby="basic-addon1">円&nbsp; 
+          <input type="text"  name="mitsumoriSuu" class="form-control" placeholder="英数字のみ" aria-label="Username" aria-describedby="basic-addon1">個&nbsp; </span></nobr>
+          <label for="basic-url"><h5 style=color:#3B3838><b>※ 見積書のリンク情報<b></h5></label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">https://advantec-group.ent.box.com/.../</span>
+            </div>
+            <input type="text" class="form-control" name="mitsumoriLink" id="basic-url" aria-describedby="basic-addon3">
+          </div>
+<!--          <button type="submit" class="btn btn-primary">確定</button> &nbsp;&nbsp; --> 
+           <button class="btn btn-primary" type="submit" name="confirm" style="width:120pt;height:35pt;margin: 5px 5px;"> 確定</button> &nbsp;&nbsp; 
+           <button class="btn btn-primary" type="submit" name="pageTop" style="width:120pt;height:35pt;margin: 5px 5px;"> TOPへ戻る</button>
+           </span>
+           </nobr>
+
+<!--          <a href="rtn-top" class="btn btn-primary"  style="width:120pt;height:35pt;margin: 5px 5px;">TOPへ戻る</a></span></nobr> -->
+        </form>
+        </div>
+      </div>
+    </div>
+  </body> {% endcomment %}
+
+{% endblock content %}
