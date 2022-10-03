@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+body {
+	background-color: #fffff9; /* #fffefa;/* #eeece9; */
+} 
+ /* https://proengineer.internous.co.jp/content/columnfeature/6491 */
+.Header1 {
+position: fixed; /* ヘッダーを固定する */
+top: 0; /* 上部から配置の基準位置を決める */
+left: 20; /* 左から配置の基準位置を決める */
+width: 100%; /* ヘッダーの横幅を指定する */
+height: 309px; /* ヘッダーの高さを指定する */
+padding: 7px 0 0 0; /* ヘッダーの余白を指定する(上下左右) */
+/* background-color: #31a9ee; /* ヘッダーの背景色を指定する */
+/* color: #000000; /* フォントの色を指定する */
+	color: #333;
+	background-color: #fffff9; /* #fffefa;/* #eeece9; */
+
+}
+
+.Contents1 {
+width: 100%; /* コンテンツの横幅を指定する */
+ padding: 311px 0 0 0; */
+ margin-left: 100px;
+overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
+}
+
+.Header2 {
+position: fixed; /* ヘッダーを固定する */
+top: 0; /* 上部から配置の基準位置を決める */
+left: 10; /* 左から配置の基準位置を決める */
+width: 100%; /* ヘッダーの横幅を指定する */
+height: 220px; /* ヘッダーの高さを指定する */
+padding: 6px 0 0 0; /* ヘッダーの余白を指定する(上下左右) */
+/* background-color: #31a9ee; /* ヘッダーの背景色を指定する */
+/* color: #000000; /* フォントの色を指定する */
+	color: #333;
+	background-color: #fffff9;
+
+}
+
+.Contents2 {
+width: 100%; /* コンテンツの横幅を指定する */
+ padding: 233px 0 0 0; */
+ margin-left: 100px;
+overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
+}
+
+ table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	text-align: center;
+	width: 1200px;
+	max-width: 100%;
+	overflow: scroll; 
+	table-layout: fixed; 
+	margin-left: 50px;
+	background-color: #eeece9; 
+
+
+
+}
+
+.tr0 {
+	color: #333;
+	background-color: #f0f2f7; 
+}
+
+th, td {
+	padding: 6px 15px;
+	border: solid 1px  #020306;
+}
+
+
+/* 番号　*/
+.td1 {
+	width: 50px;
+	word-wrap: break-word;  /* セルオーバー時の自動改行 */
+}
+/* 日付　*/
+.td2 {
+	width: 50px;
+	word-wrap: break-word;   /* セルオーバー時の自動改行 */
+}
+/* 問い合わせ */
+.td3 {
+	width: 350px;
+	word-wrap: break-word;   /* セルオーバー時の自動改行 */
+}
+/* 回答　*/
+.td4 {
+	width: 350px;
+	word-wrap: break-word;   /* セルオーバー時の自動改行 */
+}
+/* ハイパーリンク */
+.td5 {
+	width: 250px;
+	word-wrap: break-word;   /* セルオーバー時の自動改行 */
+}
+/* カテゴリー */
+.td6 {
+	width: 200px;
+	word-wrap: break-word;   /* セルオーバー時の自動改行 */
+}
+
+
